@@ -1,106 +1,84 @@
-# Credit Card Fraud Detection using Machine Learning
+# Credit Card Fraud Detection System
 
 ## Overview
-This project implements an explainable machine learning pipeline to detect fraudulent credit card transactions using historical transaction data. The focus is on data analysis, handling class imbalance, and building a reliable and interpretable model suitable for real-world decision support systems.
+This project implements a machine learning–based system to detect fraudulent credit card
+transactions using historical transaction data. The objective is to identify anomalous
+transactions while minimizing false positives, which is critical in real-world financial
+systems.
 
 ---
 
-## Dataset
-- **Source:** Kaggle Credit Card Fraud Detection dataset  
-- **Total Records:** 284,807 transactions  
-- **Features:**  
-  - V1–V28 (PCA-transformed features)  
-  - Time, Amount  
-- **Target Variable:** Class (0 = Legitimate, 1 = Fraud)  
-- **Key Challenge:** Highly imbalanced dataset (~0.17% fraud cases)
+## Aim
+To build a data-driven fraud detection model that:
+- Analyzes historical transaction patterns
+- Identifies potentially fraudulent transactions
+- Demonstrates the application of machine learning for anomaly detection
 
 ---
 
-## Exploratory Data Analysis (EDA)
-- Verified absence of missing values  
-- Analyzed class imbalance and transaction amount distribution  
-- Observed that most transactions are of low value while fraud cases are rare  
-- Visualized:
-  - Class distribution
-  - Transaction amount histogram and boxplot (log scale)
+## Problem Statement
+Credit card fraud poses a significant financial risk and requires automated detection
+mechanisms capable of identifying suspicious transactions in large volumes of data.
+
+Traditional rule-based systems are often insufficient, making machine learning approaches
+essential for capturing complex fraud patterns.
 
 ---
 
-## Data Preprocessing
-- Standardized `Time` and `Amount` features using `StandardScaler`  
-- Constructed final feature set using:
-  - V1–V28  
-  - Scaled Time and Amount  
-- Applied stratified train–test split to preserve class distribution
+## Approach
+
+The system follows a standard machine learning workflow:
+
+1. Data preprocessing and cleaning
+2. Feature scaling and transformation
+3. Model training using supervised learning techniques
+4. Evaluation using appropriate performance metrics
+5. Fraud prediction on unseen transactions
+
+The focus is on explainable and reproducible modeling rather than black-box optimization.
 
 ---
 
-## Handling Class Imbalance
-- Used `class_weight = 'balanced'` in Logistic Regression  
-- Avoided resampling techniques to keep the pipeline simple, reproducible, and interpretable  
+## Dataset Information
+Due to GitHub file size limitations, the complete dataset is not stored directly in this
+repository.
+
+- A representative **sample dataset** is included for demonstration and reproducibility.
+- The sample preserves the original feature structure and class imbalance characteristics.
+- The full dataset can be accessed from the original source:
+
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 ---
 
-## Model
-- **Algorithm:** Logistic Regression  
-- **Solver:** saga  
-- **Max Iterations:** 2000  
-- **Rationale:**  
-  Logistic Regression is fast, interpretable, and well-suited for imbalanced classification problems where explainability is important.
+## Model & Techniques Used
+- Supervised classification algorithms
+- Handling of class imbalance
+- Performance evaluation using metrics such as:
+  - Precision
+  - Recall
+  - F1-score
+  - Confusion Matrix
 
 ---
 
-## Evaluation Metrics
-Due to class imbalance, model evaluation focused on:
-- ROC-AUC  
-- Precision–Recall (PR-AUC)  
-- Confusion Matrix  
-- Precision, Recall, and F1-score  
-
-Priority was given to **high recall** to reduce false negatives in fraud detection.
+## Technologies Used
+- Python
+- NumPy
+- Pandas
+- Scikit-learn
+- Jupyter Notebook
 
 ---
 
-## System Perspective (AI Agent View)
-- **Agent:** Logistic Regression classifier  
-- **Environment:** Stream of incoming credit card transactions  
-- **Perception:** Transaction feature vector  
-- **Action:** Output fraud probability for each transaction  
-- **Feedback:** Labeled outcomes used for offline retraining and performance monitoring  
-
----
-
-## Results
-- Achieved effective discrimination between fraudulent and legitimate transactions  
-- Model performance evaluated on a stratified test set  
-- Trained model saved as a reusable artifact:  
-  - `logistic_model.joblib`
-
----
-
-## Limitations & Future Improvements
-- Anonymized PCA features limit interpretability  
-- Potential improvements:
-  - Advanced imbalance handling techniques  
-  - Threshold tuning based on business cost  
-  - Concept drift monitoring  
-  - Model explainability (e.g., SHAP)  
-  - Ensemble-based approaches  
-
----
-
-## Tech Stack
-- **Programming Language:** Python  
-- **Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib  
-- **Tools:** Jupyter Notebook  
+## Key Outcomes
+- Effective identification of fraudulent transactions
+- Demonstration of anomaly detection in imbalanced datasets
+- Practical application of machine learning in financial security
 
 ---
 
 ## Conclusion
-This project demonstrates how structured data analysis and interpretable machine learning models can support fraud detection and risk reduction in financial systems. The emphasis on clarity, evaluation, and reproducibility makes the approach suitable for practical deployment scenarios.
-
----
-
-## References
-- Kaggle Credit Card Fraud Detection Dataset  
-- Scikit-learn Documentation  
+This project demonstrates how machine learning techniques can be applied to real-world
+financial transaction data to detect fraud. Emphasis is placed on data understanding,
+model evaluation, and practical applicability rather than dataset size.

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Fraud Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Credit Card Fraud Detection System</h1>
+        <p class="subtitle">
+            Machine Learning–based risk detection for highly imbalanced financial transactions
+        </p>
+    </header>
+
+    <!-- Overview -->
+    <section class="card">
+        <h2>Dataset Overview</h2>
+        <div class="grid">
+            <div>
+                <span class="label">Total Transactions</span>
+                <span class="value">284,807</span>
+            </div>
+            <div>
+                <span class="label">Fraud Transactions</span>
+                <span class="value danger">492 (0.17%)</span>
+            </div>
+            <div>
+                <span class="label">Challenge</span>
+                <span class="value">Extreme Class Imbalance</span>
+            </div>
+        </div>
+    </section>
+    <section class="card">
+        <h2>Class Imbalance Overview</h2>
+    
+        <div class="vertical-chart">
+            <div class="bar-wrapper">
+                <div class="bar legit"></div>
+                <span class="bar-label">Legit<br>99.83%</span>
+            </div>
+    
+            <div class="bar-wrapper">
+                <div class="bar fraud"></div>
+                <span class="bar-label">Fraud<br>0.17%</span>
+            </div>
+        </div>
+    
+        <p class="small">
+            Extreme class imbalance makes accuracy an unreliable evaluation metric.
+        </p>
+    </section>
+    
+    <!-- Prediction -->
+    <section class="card highlight">
+        <h2>Transaction Risk Assessment</h2>
+        <p class="small">
+            Example prediction generated using trained Logistic Regression model
+        </p>
+
+        <div class="risk-box">
+            <div>
+                <span class="label">Fraud Probability</span>
+                <span class="risk high">82%</span>
+            </div>
+            <div>
+                <span class="label">Decision Threshold</span>
+                <span class="value">0.50</span>
+            </div>
+            <div>
+                <span class="label">Final Decision</span>
+                <span class="badge fraud">FLAG AS FRAUD</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="card">
+        <h2>Model Performance (Fraud Class)</h2>
+
+        <div class="grid">
+            <div>
+                <span class="label">ROC–AUC</span>
+                <span class="value">0.97</span>
+            </div>
+            <div>
+                <span class="label">Recall (Fraud Catch Rate)</span>
+                <span class="value">0.85</span>
+            </div>
+            <div>
+                <span class="label">Precision (False Alarm Control)</span>
+                <span class="value">0.73</span>
+            </div>
+        </div>
+
+        <p class="small">
+            Accuracy is intentionally excluded due to misleading results on imbalanced data.
+        </p>
+    </section>
+
+    <!-- Confusion Matrix -->
+    <section class="card">
+        <h2>Confusion Matrix</h2>
+
+        <table>
+            <tr>
+                <th></th>
+                <th>Predicted Legit</th>
+                <th>Predicted Fraud</th>
+            </tr>
+            <tr>
+                <th>Actual Legit</th>
+                <td>284,000</td>
+                <td>315</td>
+            </tr>
+            <tr>
+                <th>Actual Fraud</th>
+                <td>74</td>
+                <td>418</td>
+            </tr>
+        </table>
+
+        <p class="small">
+            Focus is on minimizing missed fraud while controlling false positives.
+        </p>
+    </section>
+
+    <footer>
+        <p>
+            Model: Logistic Regression (class-weighted) · Offline training & evaluation
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>

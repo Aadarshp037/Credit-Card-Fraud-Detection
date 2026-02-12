@@ -162,6 +162,7 @@ If model is saved using `joblib`, ensure the prediction logic is correctly linke
 
 ## 👤 Author
 
-Adarsh Kumar  
+Aadarsh Kumar  
 AI & Full Stack Developer  
+
 
